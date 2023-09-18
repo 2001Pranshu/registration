@@ -1,0 +1,40 @@
+.cont{
+    width: 700px;
+    margin:0 300px;
+}
+.cont h1{
+    margin-left: 300px;
+}
+body{
+    background-image: url("bg-registration-form-5.jpg");
+}
+.cont img{
+    width: 700px;}
+
+    @media (max-width: 991px){
+        .cont{
+            width: 500px;
+            margin-left: 200px;
+        }
+        .cont img{
+            width: 500px;
+            margin:0 30px;
+        }
+        .cont h1{
+            margin-left: 200px;
+        }
+    }
+
+    @media (max-width: 767px){
+        .cont{
+            width: 300px;
+            margin-left: 100px;
+        }
+        .cont img{
+            width: 300px;
+            margin:0 15px;
+        }
+        .cont h1{
+            margin-left: 100px;
+        }
+    }

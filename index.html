@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>RegistrationForm</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<div class="inner">
+				<form onsubmit="event.preventDefault(); save()">
+					<h3>Registration for the Event</h3>
+				
+					
+					<div class="form-wrapper">
+						<label for="" class="label-input">Name</label>
+						<input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+					</div>
+					<div class="form-wrapper">
+						<label for="" class="label-input">Email</label>
+						<input type="text" class="form-control" id="email" placeholder="Enter your email" required>
+					</div>
+					<div class="form-wrapper">
+						<label for="" class="label-input">Password</label>
+						<input type="password" id="password" placeholder="Create password" required>
+					</div>
+					
+					<div class="form-wrapper">
+						<label for="" class="label-input">Confirm Password</label>
+						<input type="password" id="confirm_password" placeholder="Confirm password" required>
+					</div>
+					<div class="policy">
+						<input type="checkbox">
+						<p>I accept all terms & condition</p>
+					  </div>
+					  <button class="sbtn" id="savebtn">Send your booking</button>
+					  <br><br>
+					  <div class="text">
+						<p>Already have an account? <a href="login.html">Login now</a></p>
+					  </div>
+					  <div id="message" style="color: #cb6e7a ;"><p id="message" style="display: none;">successfully added details</p></div>
+				</form>
+				<div class="image-holder">
+					<img src="mrbeenpic2.jpg" alt="">
+				</div>
+			</div>
+		</div>
+
+		<script>
+			function save() {
+				var name = document.getElementById("name").value;
+				var email = document.getElementById("email").value;
+				var password = document.getElementById("password").value;
+				var confirm_password = document.getElementById("confirm_password").value;
+	
+				var user = { "name": name, "email": email, "password": password, "confirm_password": confirm_password };
+	
+				if (localStorage.getItem("newuser1")) {
+					var newuser = JSON.parse(localStorage.getItem("newuser1"));
+					newuser.push(user);
+					localStorage.setItem("newuser1", JSON.stringify(newuser));
+				}
+				else {
+					var newuser = [user];
+					newuser.push(user);
+					localStorage.setItem("newuser1", JSON.stringify(newuser));
+				}
+				document.getElementById("message").innerHTML = "Your Registration is Successfull";
+				setTimeout(function () {
+					document.getElementById("message").style.display = "none";
+				}, 2000);
+	
+				clear();
+				function clear() {
+					document.getElementById("name").value = "";
+					document.getElementById("email").value = "";
+					document.getElementById("password").value = "";
+					document.getElementById("confirm_password").value = "";
+				}
+			}
+		</script>
+
+
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
